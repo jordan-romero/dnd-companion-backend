@@ -6,5 +6,6 @@ import { PrismaService } from 'src/prisma.service';
 @Module({
   controllers: [CharactersController],
   providers: [CharactersService, PrismaService],
+  exports: [CharactersService],
 })
 export class CharactersModule {}

@@ -5,8 +5,8 @@ import { OptimizationService } from './optimization.service';
 export class OptimizationController {
   constructor(private readonly optimizationService: OptimizationService) {}
 
-  @Get(':id')
+  @Get(':id/features')
   async getOptimization(@Param('id') id: number) {
-    return this.optimizationService.getOptimizationById(+id);
+    return this.optimizationService.getFeaturesOptimizationById(+id);
   }
 }

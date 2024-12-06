@@ -1,19 +1,16 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from '../prisma.service';
 import { DndApiService } from 'src/shared/dnd-api/dnd-api.service';
+import { CharactersService } from 'src/characters/characters.service';
 
 @Injectable()
 export class OptimizationService {
   constructor(
-    private readonly prisma: PrismaService,
     private readonly dndApiService: DndApiService,
+    private readonly charactersService: CharactersService,
   ) {}
 
-  async getOptimizationById(id: number) {
-    const character = await this.prisma.character.findUnique({ where: { id } });
-    if (!character) {
-      throw new Error('Character not found');
-    }
+  async getFeaturesOptimizationById(id: number) {
+    const character = await this.charactersService.getCharacterById(id);
     const features = await this.getClassFeatures(character.class);
     return { character, features };
   }
