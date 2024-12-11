@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { CharactersService } from './characters.service';
 
 @Controller('characters')
@@ -23,5 +23,19 @@ export class CharactersController {
     },
   ) {
     return this.charactersService.createCharacter(characterData);
+  }
+
+  @Put(':id')
+  async updateCharacter(
+    @Param('id') id: string,
+    @Body()
+    characterData: {
+      name: string;
+      race: string;
+      class: string;
+      level: number;
+    },
+  ) {
+    return this.charactersService.updateCharacter(+id, characterData);
   }
 }
