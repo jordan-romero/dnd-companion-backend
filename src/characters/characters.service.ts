@@ -13,13 +13,16 @@ export class CharactersService {
     private readonly dndApiService: DndApiService,
   ) {}
   getAllCharacters() {
-    return this.prisma.character.findMany();
+    return this.prisma.character.findMany({
+      include: { features: true },
+    });
   }
   getCharacterById(id: number) {
     return this.prisma.character.findUnique({
       where: {
         id,
       },
+      include: { features: true },
     });
   }
   async createCharacter(data: {

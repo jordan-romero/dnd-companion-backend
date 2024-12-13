@@ -1,0 +1,46 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Character {
+  class: String!
+  createdAt: DateTime!
+  features: [Feature]
+  id: Int!
+  level: Int!
+  name: String!
+  race: String!
+  updatedAt: DateTime!
+}
+
+input CreateCharacterDto {
+  class: String!
+  level: Int!
+  name: String!
+  race: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Feature {
+  character: Character!
+  createdAt: DateTime!
+  description: [String!]!
+  id: Int!
+  level: Int!
+  name: String!
+  updatedAt: DateTime!
+}
+
+type Mutation {
+  createCharacter(characterData: CreateCharacterDto!): Character!
+  updateCharacter(characterData: CreateCharacterDto!, id: Int!): Character!
+}
+
+type Query {
+  getAllCharacters: [Character!]!
+  getCharacterById(id: Int!): Character
+}
