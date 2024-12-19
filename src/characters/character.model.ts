@@ -1,6 +1,6 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
 import { Feature } from './feature.model';
-
+import { User } from '../users/user.model';
 @ObjectType()
 export class Character {
   @Field(() => Int)
@@ -26,4 +26,7 @@ export class Character {
 
   @Field()
   updatedAt: Date;
+
+  @Field(() => User)
+  user: User;
 }

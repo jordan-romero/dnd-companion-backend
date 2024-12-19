@@ -30,6 +30,7 @@ export class CharactersService {
     race: string;
     class: string;
     level: number;
+    userId: number;
   }) {
     return this.prisma.$transaction(async (tx) => {
       const character = await tx.character.create({
@@ -38,6 +39,7 @@ export class CharactersService {
           race: data.race,
           class: data.class,
           level: data.level,
+          userId: data.userId,
         },
       });
 

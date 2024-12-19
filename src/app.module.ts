@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { join } from 'path';
     CharactersModule,
     FeaturesModule,
     SharedModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService, PrismaService],

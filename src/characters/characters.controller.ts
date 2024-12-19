@@ -20,6 +20,7 @@ export class CharactersController {
       race: string;
       class: string;
       level: number;
+      userId: number;
     },
   ) {
     return this.charactersService.createCharacter(characterData);

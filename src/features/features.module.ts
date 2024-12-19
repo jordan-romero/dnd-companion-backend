@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
-import { OptimizationService } from './optimization.service';
-import { OptimizationController } from './features.controller';
+import { FeaturesService } from './features.service';
+import { FeaturesController } from './features.controller';
 import { PrismaService } from 'src/prisma.service';
 import { SharedModule } from 'src/shared/shared.module';
 import { CharactersModule } from 'src/characters/characters.module';
 
 @Module({
-  providers: [OptimizationService, PrismaService],
-  controllers: [OptimizationController],
+  providers: [FeaturesService, PrismaService],
+  controllers: [FeaturesController],
   imports: [SharedModule, CharactersModule],
 })
-export class OptimizationModule {}
+export class FeaturesModule {}

@@ -20,4 +20,8 @@ export class CreateCharacterDto {
   @IsInt()
   @Min(1)
   level: number;
+
+  @Field(() => Int)
+  @IsInt()
+  userId: number;
 }
